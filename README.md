@@ -1,95 +1,74 @@
 # Network-Design-and-Topology-Creation-Cisco-Packet-Tracer-
 Workshop: Design and Simulate Three Enterprise Network Topologies (30 Nodes Each)
+-----------------------------------------------------------------------------------------
+## NAME: KAMALESH S
+## REGISTER_NUMBER: 21222304003
+______________________________________________________________________________________
+## Introduction
 
-🎯 Workshop Purpose
+This report documents the complete design, configuration, and verification of an enterprise-scale network created using Cisco Packet Tracer.
+The project covers:
+>Multi-router hierarchical network
+>Six-layer access switches
+>DHCP, VLANs, subnetting
+>Inter-router communication
+>End-to-end connectivity verification
+>The entire topology was designed, configured, and tested from scratch.
 
-This workshop is designed to provide hands-on experience in enterprise-level network design, configuration, and simulation using Cisco Packet Tracer. Students will build three complete network topologies, each consisting of a minimum of 30 nodes (routers, switches, PCs, servers, and/or IoT devices).
+## NETWORK TOPOLOGY
+<img width="1186" height="715" alt="image" src="https://github.com/user-attachments/assets/06a5e5bc-7c6d-4f7c-b2d2-cad0f6076e6e" />
 
-The activity mirrors real-world CCNA tasks including subnetting, VLAN implementation, dynamic routing, inter-VLAN routing, DHCP services, and end-to-end connectivity testing.
+## IP ADDRESSING
 
-By completing this workshop, students develop industry-relevant skills essential for network technicians, administrators, and CCNA candidates.
+| Device | Interface | IP Address    | Subnet Mask     | Description     |
+| ------ | --------- | ------------- | --------------- | --------------- |
+| **R2** | G0/0      | 10.0.1.2      | 255.255.255.252 | Link to R3      |
+|        | G0/1      | 192.168.10.1  | 255.255.255.0   | VLAN 10 Segment |
+|        | G0/2      | 192.168.10.65 | 255.255.255.192 | VLAN 20 Segment |
+| **R3** | G0/0      | 10.0.2.2      | 255.255.255.252 | Link to R4      |
+|        | G0/1      | 192.168.20.1  | 255.255.255.0   | VLAN 10 Segment |
+|        | G0/2      | 192.168.20.65 | 255.255.255.192 | VLAN 20 Segment |
+| **R4** | G0/0      | 10.0.3.2      | 255.255.255.252 | Link to R7      |
+|        | G0/1      | 192.168.30.1  | 255.255.255.0   | VLAN 30 Segment |
+|        | G0/2      | 192.168.40.1  | 255.255.255.0   | VLAN 40 Segment |
 
-🎓 Learning Outcomes
+## Router Configuration Summary
+    ## DHCP Configuration
+      ip dhcp pool VLAN10
+       network 192.168.10.0 255.255.255.0
+       default-router 192.168.10.1
 
-After completing this workshop, learners will be able to:
+      ip dhcp pool VLAN20
+       network 192.168.10.64 255.255.255.192
+       default-router 192.168.10.65
 
-✔ Design hierarchical multi-router topologies using Cisco Packet Tracer
-✔ Apply subnetting and IP planning across multiple LAN/WAN segments
-✔ Configure routers, multilayer switches, and access switches
-✔ Implement VLANs, DHCP, static/dynamic routing (OSPF), and inter-VLAN routing
-✔ Verify network connectivity using ping, tracert, and show commands
-✔ Document the entire network with diagrams, addressing tables, and configuration summaries
-✔ Provide constructive, technical peer evaluations on other submissions
+    ## interface Configuration Example
+        interface GigabitEthernet0/1
+         ip address 192.168.10.1 255.255.255.0
+         no shutdown
+    
+    ## Helper Address Configuration
+        interface GigabitEthernet0/1
+         ip helper-address 10.0.1.1
 
-These outcomes align with the Cisco CCNA 200-301 competencies.
-
-🧩 Workshop Requirements
-
-Each student must create three different enterprise topologies, each with at least 30 nodes, and configure them as follows:
-
-🛰 Lab 1 — Campus LAN Topology
-
-2–3 Routers
-6 Switches
-20+ PCs/Servers
-Proper IP Subnetting
-VLAN Segmentation
-Inter-VLAN Routing
-End-to-end ping connectivity
-
-🏢 Lab 2 — Branch Office Network
-Main Router + Branch Routers
-4–5 Switches
-Remote Workstations
-Static Routing between branches
-Subnetting for multiple departments
-Connectivity verification via ping & tracert
-
-🏭 Lab 3 — Multi-Layer Enterprise Topology
-3+ Routers
-8+ Switches
-DHCP Deployment
-Server Farm Integration
-Multi-Layer Architecture (Access / Distribution / Core)
-Dynamic Routing (OSPF recommended)
-Inter-site communication
-
-📝 Student Submission Requirements
-Each student must upload:
-📁 Three Packet Tracer Files
-Lab1.pka
-Lab2.pka
-Lab3.pka
-
-📄 One Consolidated PDF Report, including:
-
-Network Diagrams (Packet Tracer screenshots)
-IP Addressing Tables for each lab
-VLAN & Router Configuration Summary
-Routing protocol configuration
-Ping & Traceroute verification outputs
-Short explanation/justification of design choices
+## PC CONFIGURATIONS:
+<img width="1600" height="899" alt="image" src="https://github.com/user-attachments/assets/6c5ce0aa-002e-433e-8bf4-7b3b2869abf2" />
 
 
-📘 Expected Learning Outcome
+## PING TEST:
+<img width="1600" height="899" alt="image" src="https://github.com/user-attachments/assets/2dbc3ccf-1400-40d6-a8fb-00622527ca82" />
 
-By completing this workshop, students gain practical experience in:
-Enterprise network design
-Subnetting for large networks
-VLAN and inter-VLAN routing
-DHCP deployment
-Dynamic routing with OSPF
-Hierarchical network architecture
-Troubleshooting multi-router issues
-Real-world CCNA-style configuration and verification
-This hands-on project strengthens both conceptual understanding and practical configuration skills, ensuring readiness for professional network engineering roles.
+## RESULT:
+This CASE STUDY demonstrates complete mastery of:
+VLAN design
+DHCP implementation
+Inter-router connectivity
+Switchport configuration
+Network troubleshooting
+Packet Tracer simulation
 
-✅ Summary
 
-This workshop simulates real-world enterprise network environments and challenges students to:
-Build
-Configure
-Troubleshoot
-Document
-And justify
-complex multi-layer Cisco networks—exactly the type of skills demanded in CCNA certification and professional networking environments.
+
+
+
+
