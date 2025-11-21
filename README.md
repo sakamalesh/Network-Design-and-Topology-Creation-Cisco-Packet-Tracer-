@@ -51,6 +51,25 @@ The project covers:
         interface GigabitEthernet0/1
          ip helper-address 10.0.1.1
 
+## SWITCH CONFIGURATIONS:
+    ## VLAN Creation
+        vlan 10
+        vlan 20
+        vlan 30
+        vlan 40
+
+    ## Uplink Port Setup
+        interface GigabitEthernet0/1
+         switchport mode access
+         switchport access vlan X
+         no shutdown
+        
+     ## Access Ports
+        interface range FastEthernet0/1 - 15
+         switchport mode access
+         switchport access vlan X
+         spanning-tree portfast
+
 ## PC CONFIGURATIONS:
 <img width="1600" height="899" alt="image" src="https://github.com/user-attachments/assets/6c5ce0aa-002e-433e-8bf4-7b3b2869abf2" />
 
